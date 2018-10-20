@@ -83,5 +83,6 @@
     <string name="select1">Select Your Areas Of Expertise:</string>
     <string name="swagat1">Hey Nice To See U Here..!!</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_counsellor">CounsellorActivity</string>
 
 </resources>

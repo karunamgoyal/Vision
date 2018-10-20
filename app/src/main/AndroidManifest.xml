@@ -36,9 +36,13 @@
         <activity
             android:name=".CounsellorProfile"
             android:label="@string/title_activity_counsellor_profile"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Profile" />
+        <activity android:name=".GetStarted2" />
+        <activity
+            android:name=".CounsellorActivity"
+            android:label="@string/title_activity_counsellor"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Profile"/>
-        <activity android:name=".GetStarted2"/>
     </application>
 
 </manifest>
