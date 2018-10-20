@@ -1,6 +1,8 @@
 package vision.karunamgoyal.vision;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,6 +76,9 @@ public class GetStarted extends AppCompatActivity {
                         Cricket.isChecked(),FootBall.isChecked(),Badminton.isChecked(),Geography.isChecked(),Politics.isChecked(),Accounts.isChecked());
 
                 mdatabadereference.setValue(interest);
+                SharedPreferences pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+                final SharedPreferences.Editor editor = pref.edit();
+                editor.putBoolean("getstarted",true);
                             sendtoHomepage();
 
             }

@@ -3,6 +3,7 @@ package vision.karunamgoyal.vision;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -63,7 +64,13 @@ public class ExamFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ausername=StudentActivity.getMyData();
+        SharedPreferences pref = getActivity().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = pref.edit();
+        String userType=pref.getString("userType","");
+        if(userType.equals("Student"))
+            ausername=StudentActivity.getMyData();
+        else
+            ausername=CounsellorActivity.getMyData();
     }
 
     @Override

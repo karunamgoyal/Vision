@@ -1,5 +1,6 @@
 package vision.karunamgoyal.vision;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -141,14 +142,21 @@ public class ProfileSetting extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent in = new Intent(this, StudentActivity.class);
-            in.putExtra(str, ausername);
+            SharedPreferences pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+            final SharedPreferences.Editor editor = pref.edit();
+            String userType=pref.getString("userType","");
+            Intent in;
+            if(userType.equals("Student"))
+                in=new Intent(this,StudentActivity.class);
+            else
+                in=new Intent(this,CounsellorActivity.class);
+            in.putExtra(str,ausername);
             startActivity(in);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
-            Intent intent =new Intent(this,ProfileSetting.class);
+            Intent intent =new Intent(this,Profile.class);
             intent.putExtra(str, ausername);
             startActivity(intent);
 
